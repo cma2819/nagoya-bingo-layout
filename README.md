@@ -1,6 +1,6 @@
-# nagoya-fes-layout
+# nagoya-bingo-layout
 
-名古屋RTA用NodeCGのbundleです。
+ビンゴマラソンオンライン用NodeCGのbundleです。
 
 ## Requirements
 
@@ -12,13 +12,13 @@
 NodeCGの`bundles`フォルダ内でコマンドを実行してください。
 
 ```
-$ git clone https://github.com/cma2819/nagoya-fes-layout.git
-$ cd nagoya-fes-layout
+$ git clone https://github.com/cma2819/nagoya-bingo-layout.git
+$ cd nagoya-bingo-layout
 $ npm install --production
 
 # or
 
-$ nodecg install cma2819/nagoya-fes-layout
+$ nodecg install cma2819/nagoya-bingo-layout
 ```
 
 本bundleの実行には以下のbundleが必要です。
