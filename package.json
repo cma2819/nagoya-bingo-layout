@@ -1,0 +1,116 @@
+{
+  "name": "nagoya-bingo-layout",
+  "version": "1.0.0",
+  "description": "NodeCG layout for Nagoya Bingo marathon.",
+  "homepage": "",
+  "authors": [
+    {
+      "name": "cma",
+      "email": "chicchaima@gmail.com",
+      "url": "https://github.com/cma2819"
+    }
+  ],
+  "files": [
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^1.1.1",
+    "bundleDependencies": {
+      "nodecg-speedcontrol": "^2.0.0",
+      "speedcontrol-additions": "^0.9.0",
+      "nodecg-twitter-widget": "^0.9.0"
+    },
+    "dashboardPanels": [
+      {
+        "workspace": "Setup",
+        "name": "card-import",
+        "title": "ビンゴカードのインポート",
+        "file": "card-import/index.html",
+        "headerColor": "#525F78",
+        "width": 4
+      },
+      {
+        "name": "bingo-progress",
+        "title": "ビンゴ進捗",
+        "file": "bingo-progress/index.html",
+        "headerColor": "#525F78",
+        "fullbleed": true
+      }
+    ],
+    "graphics": [
+      {
+        "file": "index.html",
+        "width": 1280,
+        "height": 720
+      }
+    ],
+    "assetCategories": [
+      {
+        "name": "background",
+        "title": "背景画像",
+        "allowedTypes": [
+          "jpg",
+          "jpeg",
+          "png"
+        ]
+      }
+    ]
+  },
+  "main": "../../index.js",
+  "scripts": {
+    "autofix": "run-s autofix:*",
+    "autofix:browser": "eslint --fix --ext .ts,.vue src/browser",
+    "autofix:extension": "eslint --fix --ext .ts src/extension",
+    "build": "run-s build:*",
+    "build:dashboard": "parcel build src/browser/dashboard/*/*.html --out-dir dashboard --public-url ./",
+    "build:extension": "tsc -b src/extension/",
+    "build:graphics": "parcel build src/browser/graphics/*/*.html --out-dir graphics --public-url ./",
+    "clean": "trash .cache dashboard graphics extension",
+    "watch:dashboard": "parcel watch src/browser/dashboard/*/*.html --out-dir dashboard --public-url ./",
+    "watch:extension": "tsc -b src/extension/ -w",
+    "watch:graphics": "parcel watch src/browser/graphics/*/*.html --out-dir graphics --public-url ./",
+    "start": "node ../..",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "schema-types": "nodecg schema-types -o src/nodecg/generated schemas && nodecg schema-types -o src/nodecg/generated/lib schemas/lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cma2819/nagoya-bingo.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cma2819/nagoya-bingo/issues"
+  },
+  "devDependencies": {
+    "@types/clone": "^0.1.30",
+    "@types/node": "^13.7.1",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "@vue/component-compiler-utils": "^3.1.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-vue": "^6.2.1",
+    "parcel-bundler": "^1.12.4",
+    "ts-nodecg": "^0.3.0",
+    "typescript": "^3.7.5",
+    "vue-eslint-parser": "^7.0.0",
+    "vue-property-decorator": "^8.4.0",
+    "vue-template-compiler": "^2.6.11",
+    "vuex-module-decorators": "^0.16.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "clone": "^2.1.2",
+    "font-awesome": "^4.7.0",
+    "googleapis": "^59.0.0",
+    "vue": "^2.6.11",
+    "vue-hot-reload-api": "^2.3.4",
+    "vuetify": "^2.2.12",
+    "vuex": "^3.1.2"
+  }
+}

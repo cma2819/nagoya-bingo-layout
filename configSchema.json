@@ -1,0 +1,20 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"bingoSpreadsheet": {
+			"type": "string",
+			"format": "url",
+			"default": "https://example.com/googlespreadsheet"
+		},
+		"googleApiKey": {
+			"type": "string",
+			"default": "<google api key>"
+		}
+	},
+	"required": [
+		"bingoSpreadsheet",
+		"googleApiKey"
+	]
+}

@@ -1,0 +1,106 @@
+body {
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+#top {
+    margin-top: 8px;
+    width: auto;
+    margin-bottom: 24px;
+}
+
+#top * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#logo {
+    width: 128px;
+    margin-right: 32px;
+}
+
+#comment, .game {
+    background-color: rgba(32, 64, 128, 50%);
+}
+
+#comment {
+    width: calc(600px);
+    font-size: 24px;
+    padding: 0 0.5em;
+    border-radius: 4px;
+}
+
+.game {
+    margin-bottom: 8px;
+    padding: 4px 8px;
+    border-bottom: solid 4px;
+    border-radius: 4px;
+}
+
+.text-datas {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.upcoming {
+    width: 1000px;
+    font-size: 1.1em;
+    border-color: rgb(247, 255, 25);
+}
+
+.upcoming .coming-time {
+    margin-bottom: 0.2em;
+}
+
+.upcoming .title span {
+    position: relative;
+    font-size: 1.7em;
+    margin-right: 4em;
+}
+
+.upcoming .category {
+    margin-top: -0.4em;
+    margin-bottom: 0.6em;
+}
+
+.upcoming .platform, .upcoming .runner {
+    margin-top: -0.4em;
+}
+
+.next {
+    width: 800px;
+    font-size: 0.96em;
+}
+
+.next .title span {
+    font-size: 1.5em;
+    position: relative;
+}
+
+.next .category {
+    margin-top: -0.4em;
+}
+
+#next-game-1 {
+    margin-left: 0px;
+    border-color: rgb(67, 243, 203);
+}
+
+#next-game-2 {
+    margin-left: 100px;
+    border-color: rgb(36, 114, 198);
+}
+
+#next-game-3 {
+    margin-left: 200px;
+    border-color: rgb(244, 40, 153);
+}
+
+@keyframes marquee {
+  0% { left: 0; }
+  10% { left: 0%; }
+  99% { left: -100%; opacity: 1; }
+  99.001% { left: -100%; opacity: 0; }
+  99.002% { left: 0%; opacity: 0; }
+  100% { left: 0%; opacity: 1; }
+}
