@@ -24,13 +24,13 @@
 </template>
 
 <script lang="ts">
-/* global nodecg */
 import { Vue, Component, Emit, Prop } from 'vue-property-decorator';
 import BingoCardSlot from './../../components/BingoCardSlotComponent.vue';
 
 import { BingoSlot } from '../../../../nodecg/generated/lib/bingoSlot';
 import clone from 'clone';
 import { DoneSlotArray } from '../../../../nodecg/generated/lib/doneSlotArray';
+import { bingoNodecg } from '../../../plugin/nodecg';
 
 @Component({
   components: {
@@ -48,14 +48,14 @@ export default class BingoCardComponent extends Vue {
   isBlue!: boolean;
 
   created(): void {
-    nodecg.Replicant('bingoCard').on('change', (newVal) => {
+    bingoNodecg.Replicant('bingoCard').on('change', (newVal) => {
       this.bingoSlots = clone(newVal);
     });
     this.isBlue ?
-      nodecg.Replicant('blueBingoDoneArray').on('change', (newVal) => {
+      bingoNodecg.Replicant('blueBingoDoneArray').on('change', (newVal) => {
         this.doneIndexArray = clone(newVal);
       }) :
-      nodecg.Replicant('redBingoDoneArray').on('change', (newVal) => {
+      bingoNodecg.Replicant('redBingoDoneArray').on('change', (newVal) => {
         this.doneIndexArray = clone(newVal);
       });
   }
@@ -78,10 +78,10 @@ export default class BingoCardComponent extends Vue {
   }
 
   @Emit()
-  toggleSlot(slot: BingoSlot, isDone: boolean) {
+  toggleSlot(slot: BingoSlot, isDone: boolean): void {
     this.isBlue ?
-      (isDone ? nodecg.sendMessage('undoBlue', slot.id) : nodecg.sendMessage('doneBlue', slot.id)) :
-      (isDone ? nodecg.sendMessage('undoRed', slot.id) : nodecg.sendMessage('doneRed', slot.id));
+      (isDone ? bingoNodecg.sendMessage('undoBlue', slot.id) : bingoNodecg.sendMessage('doneBlue', slot.id)) :
+      (isDone ? bingoNodecg.sendMessage('undoRed', slot.id) : bingoNodecg.sendMessage('doneRed', slot.id));
   }
 }
 </script>

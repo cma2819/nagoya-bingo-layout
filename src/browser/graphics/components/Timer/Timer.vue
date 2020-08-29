@@ -1,52 +1,39 @@
 <template>
-  <div>
+  <div :style="{
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-around',
+		alignItems: 'center',
+	}">
     <div id="time-info">
-      <p
-        id="timer-label"
-        class="label"
-      >
-        Time
-      </p>
       <p
         id="timer"
         class="time"
         :class="[timeStatus, {small}]"
       >
-        {{ formattedTime }}
+        <span
+          class="segment"
+          v-for="(str, index) in timeSegmented"
+          :key="index"
+        >{{ str }}</span>
       </p>
     </div>
+    <div :style="{
+			width: '100%',
+			borderBottom: '2px solid #0067bc'
+		}"></div>
     <div id="est-info">
-      <p
-        id="est-label"
-        class="label"
-      >
-        EST
-      </p>
-      <p
-        id="est"
-        class="time"
-        :class="{small}"
-      >
-        {{ estimate }}
-      </p>
+      EST:
+      {{ estimate }}
     </div>
   </div>
 </template>
 
 <style scoped>
-p.label {
-  font-size: 2em;
-  text-align: left;
-}
-
 #time-info {
-  margin-top: 16px;
+  padding: 0.2em 0.2em;
   width: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  border-bottom: 2px solid white;
-  bottom: 0;
+  text-align: "center";
 }
 
 .time {
@@ -55,36 +42,31 @@ p.label {
 
 .time.stopped,
 .time.paused {
-  color: rgba(255, 255, 255, 60%);
+  color: #cccccc;
 }
 
 .time.finished {
   color: rgb(247, 255, 25);
 }
 
-#timer {
-  font-size: 3.6em;
-}
-
 #timer.small {
-  font-size: 3.2em;
+  font-size: 80%;
 }
 
 #est-info {
-  margin-top: 16px;
+  padding: 0.2em 0.5em;
   width: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  border-bottom: 2px solid white;
-}
-
-#est {
-  font-size: 2.8em;
+  font-size: 60%;
+  text-align: right;
 }
 
 #est.small {
-  font-size: 2.6em;
+  font-size: 80%;
+}
+
+span.segment {
+  display: inline-block;
+  width: 0.75em;
 }
 </style>
 
@@ -104,5 +86,9 @@ export default class Timer extends Vue {
 
   @Prop(String)
   readonly estimate!: string;
+
+  get timeSegmented(): Array<string> {
+    return this.formattedTime.split('');
+  }
 }
 </script>

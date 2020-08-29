@@ -6,21 +6,6 @@
       :background-image="backgroundUri"
     ></clipped-canvas>
     <div :style="{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', padding: paddings ? paddings.join(' ') : null}">
-      <div id="top">
-        <img
-          id="logo"
-          :class="{small}"
-          src="../common/img/logo.png"
-        >
-        <div id="game-info">
-          <p id="title">
-            {{ runData.game }}
-          </p><br>
-          <p id="category">
-            {{ runData.category }}
-          </p>
-        </div>
-      </div>
       <slot />
     </div>
   </div>
@@ -71,11 +56,11 @@ html {
 </style>
 
 <script lang="ts">
-/* global nodecg */
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import ClippedCanvas from './components/ClippedCanvas/ClippedCanvas.vue';
 import { ClipPath } from './components/ClippedCanvas/types';
 import { RunData } from '../../nodecg/external/speedcontrol/RunData';
+import { bingoNodecg } from '../plugin/nodecg';
 
 @Component({
   components: {
@@ -98,7 +83,7 @@ export default class OverlayBase extends Vue {
   readonly small!: boolean;
 
   created(): void {
-    nodecg.Replicant('assets:background').on('change', (newVal) => {
+    bingoNodecg.Replicant('assets:background').on('change', (newVal) => {
       if (newVal.length > 0) {
         this.backgroundUri = newVal[0].url;
       }

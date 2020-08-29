@@ -66,7 +66,12 @@ export const bingo = (nodecg: NodeCG): void => {
 		}
 	}
 
+	const defaultBingoCard = (): void => {
+		bingoCardReplicant.value = [];
+	}
+
 	nodecg.listenFor('loadBingoSpreadsheet', loadBingoSpreadsheet);
 	nodecg.listenFor('importBingoCard', importBingoCard);
+	nodecg.listenFor('defaultBingoCard', defaultBingoCard);
 
 }

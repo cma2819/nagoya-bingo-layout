@@ -2,16 +2,51 @@
   <div
     id="runner-info"
     class="info"
-    :class="{opposite}"
     :style="{
-      display: 'flex'
+      display: 'flex',
+			flexDirection: 'column',
+			justifyContent: 'space-around',
+			alignItems: 'center',
     }"
   >
-    <div>
-      <p id="runner-name">
+    <div :style="{
+			width: '100%',
+			display: 'flex',
+			justifyContent: 'space-between'
+		}">
+      <div
+        id="runner-name"
+        :style="{
+				borderLeft: `4px solid ${sideColor}`
+			}"
+      >
         {{ name }}
-      </p>
-      <p id="runner-id">
+      </div>
+      <div
+        v-if="time"
+        :style="{
+				color: 'rgb(247, 255, 25)',
+				fontFamily: 'Russo One'
+			}"
+      >
+        {{ time }}
+      </div>
+    </div>
+    <div :style="{
+			width: '100%',
+			borderBottom: '2px solid #0067bc'
+		}"></div>
+    <div :style="{
+			display: 'flex',
+			justifyContent: 'space-between',
+			font: '50% Russo One',
+			width: '100%',
+			padding: '0 0.5em',
+		}">
+      <div>
+        RUNNER
+      </div>
+      <div class="social">
         <transition
           name="social"
           mode="out-in"
@@ -50,20 +85,12 @@
             <span>{{ social.twitter }}</span>
           </div>
         </transition>
-      </p>
-    </div>
-    <div class="time">
-      {{ finishedTime }}
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-p.label {
-  font-size: 2em;
-  text-align: left;
-}
-
 .social-enter-active {
   transition: all 1s 0.5s;
 }
@@ -81,36 +108,15 @@ p.label {
 #runner-info {
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
-  border-bottom: 2px solid white;
-}
-
-#runner-info.opposite {
-  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
 #runner-name {
   text-align: left;
-  font-size: 2em;
-  margin-bottom: 0.2rem;
-}
-
-.opposite #runner-name,
-.opposite #runner-id {
-  text-align: right;
-}
-
-#runner-id {
-  text-align: left;
-  margin-top: -0.6em;
-  margin-bottom: 0.2rem;
-  height: 24px;
-}
-
-.time {
-  font-size: 2.5em;
-  color: rgb(247, 255, 25);
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  padding: 0 0.5em;
 }
 </style>
 
@@ -129,10 +135,10 @@ export default class Nameplate extends Vue {
   @Prop(Object)
   readonly social!: Social;
 
-  @Prop(Boolean)
-  readonly opposite!: boolean;
+  @Prop(String)
+  readonly time!: string;
 
   @Prop(String)
-  readonly finishedTime!: string;
+  readonly sideColor!: string;
 }
 </script>

@@ -1,5 +1,15 @@
 <template>
   <div id="tweet-on">
+    <div :style="{
+			backgroundImage: `url(${tweet.profileImageUrl})`,
+			backgroundSize: 'cover',
+			position: 'absolute',
+			top: 0,
+			left:0,
+			height: '3em',
+			width: '3em'
+		}">
+    </div>
     <div id="tweet-account">
       <p id="tweet-name">
         {{ tweet.name }}
@@ -18,15 +28,14 @@
 #tweet-on {
   position: relative;
   text-align: left;
-  font-family: "Kosugi Maru", sans-serif;
   display: flex;
   flex-direction: column;
   z-index: 99;
 }
 
 #tweet-account {
-  flex-basis: 64px;
-  margin-left: 64px;
+  flex-basis: 3em;
+  margin-left: 4em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,7 +51,7 @@
 }
 
 #tweet-body {
-  margin: auto 16px;
+  margin: 1em 0.5em;
   line-height: 1.2em;
   font-size: 0.9em;
 }

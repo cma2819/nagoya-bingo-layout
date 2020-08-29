@@ -1,5 +1,5 @@
 <template>
-  <v-card color="grey darken-3">
+  <v-card color="secondary">
     <v-toolbar>
       <v-toolbar-title>
         操作パネル
@@ -57,7 +57,7 @@
       <v-btn
         block
         class="mb-2"
-        color="success"
+        color="warning"
         @click="resetAllTeam"
       >
         <v-icon>
@@ -81,11 +81,11 @@
 </style>
 
 <script lang="ts">
-/* global nodecg */
 import { Vue, Component, Emit } from 'vue-property-decorator';
 
 import BingoProgressCount from './BingoProgressCountComponent.vue';
 import { speedcontrolModule } from '../../../plugin/speedcontrol';
+import { bingoNodecg } from '../../../plugin/nodecg';
 
 @Component({
   components: {
@@ -93,31 +93,31 @@ import { speedcontrolModule } from '../../../plugin/speedcontrol';
   }
 })
 export default class ProgressControlComponent extends Vue {
-  redDoneCount: number = 0;
-  blueDoneCount: number = 0;
+  redDoneCount = 0;
+  blueDoneCount = 0;
 
   created(): void {
-    nodecg.Replicant('redBingoDoneArray').on('change', (newVal) => {
+    bingoNodecg.Replicant('redBingoDoneArray').on('change', (newVal) => {
       this.redDoneCount = newVal.length;
     });
-    nodecg.Replicant('blueBingoDoneArray').on('change', (newVal) => {
+    bingoNodecg.Replicant('blueBingoDoneArray').on('change', (newVal) => {
       this.blueDoneCount = newVal.length;
     });
   }
 
   @Emit()
   resetRedTeam(): void {
-    nodecg.sendMessage('resetRed');
+    bingoNodecg.sendMessage('resetRed');
   }
 
   @Emit()
   resetBlueTeam(): void {
-    nodecg.sendMessage('resetBlue');
+    bingoNodecg.sendMessage('resetBlue');
   }
 
   @Emit()
   resetAllTeam(): void {
-    nodecg.sendMessage('resetBothProgress');
+    bingoNodecg.sendMessage('resetBothProgress');
   }
 
   get time(): string {

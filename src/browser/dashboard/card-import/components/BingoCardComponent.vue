@@ -19,12 +19,12 @@
 </template>
 
 <script lang="ts">
-/* global nodecg */
-import { Vue, Component, Emit } from 'vue-property-decorator';
+import { Vue, Component } from 'vue-property-decorator';
 import BingoCardSlot from './../../components/BingoCardSlotComponent.vue';
 
 import { BingoSlot } from '../../../../nodecg/generated/lib/bingoSlot';
 import clone from 'clone';
+import { bingoNodecg } from '../../../plugin/nodecg';
 
 @Component({
   components: {
@@ -35,7 +35,7 @@ export default class BingoCardComponent extends Vue {
   bingoSlots: Array<BingoSlot> = [];
 
   created(): void {
-    nodecg.Replicant('bingoCard').on('change', (newVal) => {
+    bingoNodecg.Replicant('bingoCard').on('change', (newVal) => {
       this.bingoSlots = clone(newVal)
     });
   }
@@ -55,11 +55,6 @@ export default class BingoCardComponent extends Vue {
     })
 
     return rows;
-  }
-
-  @Emit()
-  test(slot: BingoSlot) {
-    console.log(slot.name);
   }
 }
 </script>

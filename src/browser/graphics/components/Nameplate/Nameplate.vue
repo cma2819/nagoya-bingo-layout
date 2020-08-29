@@ -3,20 +3,32 @@
     id="runner-info"
     class="info"
     :style="{
-      display: 'flex'
+      display: 'flex',
+			flexDirection: 'column',
+			justifyContent: 'space-around',
+			alignItems: 'center',
     }"
   >
-    <p
-      id="runner-info-label"
-      class="label"
-    >
-      Runner
-    </p>
     <div>
       <p id="runner-name">
         {{ name }}
       </p>
-      <p id="runner-id">
+    </div>
+    <div :style="{
+			width: '100%',
+			borderBottom: '2px solid #0067bc'
+		}"></div>
+    <div :style="{
+			display: 'flex',
+			justifyContent: 'space-between',
+			font: '50% Russo One',
+			width: '100%',
+			padding: '0 1em',
+		}">
+      <div>
+        RUNNER
+      </div>
+      <div class="social">
         <transition
           name="social"
           mode="out-in"
@@ -55,17 +67,12 @@
             <span>{{ social.twitter }}</span>
           </div>
         </transition>
-      </p>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-p.label {
-  font-size: 2em;
-  text-align: left;
-}
-
 .social-enter-active {
   transition: all 1s 0.5s;
 }
@@ -85,20 +92,12 @@ p.label {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  border-bottom: 2px solid white;
 }
 
 #runner-name {
   text-align: right;
-  font-size: 2em;
-  margin-bottom: 0.2rem;
-}
-
-#runner-id {
-  text-align: right;
-  font-size: 1.2em;
-  margin-top: -0.6em;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.2em;
+  font-weight: bold;
 }
 </style>
 

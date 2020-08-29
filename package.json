@@ -40,11 +40,38 @@
         "file": "bingo-progress/index.html",
         "headerColor": "#525F78",
         "fullbleed": true
+      },
+      {
+        "name": "bingo-focus",
+        "title": "ビンゴ表示",
+        "file": "bingo-focus/index.html",
+        "headerColor": "#525F78",
+        "width": 4
       }
     ],
     "graphics": [
       {
-        "file": "index.html",
+        "file": "standby/index.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "sd_1/index.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "sd_2/index.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "hd_1/index.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "hd_2/index.html",
         "width": 1280,
         "height": 720
       }
@@ -53,6 +80,15 @@
       {
         "name": "background",
         "title": "背景画像",
+        "allowedTypes": [
+          "jpg",
+          "jpeg",
+          "png"
+        ]
+      },
+      {
+        "name": "logo",
+        "title": "ロゴ",
         "allowedTypes": [
           "jpg",
           "jpeg",

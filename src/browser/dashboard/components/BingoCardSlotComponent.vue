@@ -3,6 +3,9 @@
     <v-sheet
       tile
       class="slot pa-2 align-center"
+      :class="{
+				clickable: onClickCard,
+			}"
       elevation="1"
       width="100%"
       height="100%"
@@ -24,10 +27,12 @@
 .slot {
   border: 1px solid gray;
 }
+.clickable {
+  cursor: pointer;
+}
 </style>
 
 <script lang="ts">
-/* global nodecg */
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import { BingoSlot } from '../../../nodecg/generated/lib/bingoSlot';
 

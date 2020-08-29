@@ -81,6 +81,10 @@ exports.bingo = function (nodecg) {
             }
         });
     }); };
+    var defaultBingoCard = function () {
+        bingoCardReplicant.value = [];
+    };
     nodecg.listenFor('loadBingoSpreadsheet', loadBingoSpreadsheet);
     nodecg.listenFor('importBingoCard', importBingoCard);
+    nodecg.listenFor('defaultBingoCard', defaultBingoCard);
 };

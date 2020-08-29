@@ -12,6 +12,20 @@
           </v-card>
         </v-col>
         <v-col cols="4">
+          <v-sheet
+            class="pa-4 mb-4"
+            color="secondary"
+          >
+            <v-alert
+              class="mb-4"
+              dense
+              color="info"
+              type="info"
+            >
+              スプレッドシートにタスクの入力を終えたら、カードを選択して「インポート」してください。
+            </v-alert>
+            <bingo-import-control></bingo-import-control>
+          </v-sheet>
           <progress-control></progress-control>
         </v-col>
         <v-col cols="4">
@@ -27,21 +41,22 @@
 </template>
 
 <script lang="ts">
-/* global nodecg */
 import { Vue, Component } from 'vue-property-decorator';
-import RedLabel from '../components/RedLabelComponent.vue';
-import BlueLabel from '../components/BlueLabelComponent.vue';
+
 import BingoCard from './components/BingoCardComponent.vue';
+import BingoImportControl from '../components/BingoImportControlComponent.vue';
 import ProgressControl from './components/ProgressControlComponent.vue';
+import BlueLabel from '../components/BlueLabelComponent.vue';
+import RedLabel from '../components/RedLabelComponent.vue';
 
 @Component({
   components: {
     BingoCard,
-    RedLabel,
-    BlueLabel,
+    BingoImportControl,
     ProgressControl,
+    BlueLabel,
+    RedLabel
   }
 })
 export default class App extends Vue { }
 </script>
-

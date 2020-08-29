@@ -1,3 +1,5 @@
+import { RowType } from "../extension/focus";
+
 export type MessageMap = {
 	'loadBingoSpreadsheet': {
 		result: Array<string>;
@@ -6,6 +8,8 @@ export type MessageMap = {
 	'importBingoCard': {
 		data: string;
 	};
+
+	'defaultBingoCard': {};
 
 	'doneRed': {
 		data: number;
@@ -26,4 +30,10 @@ export type MessageMap = {
 	'resetBlue': {};
 
 	'resetBothProgress': {};
+
+	'focusTo': {
+		data: RowType
+	};
+
+	'removeFocus': {};
 };

@@ -10,7 +10,6 @@
 </template>
 
 <script lang="ts">
-/* global nodecg */
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
 @Component

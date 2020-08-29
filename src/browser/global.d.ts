@@ -57,14 +57,16 @@ type TwitterWidgetConstructor = CreateNodecgConstructor<
 	true
 >
 
+type BundleNodecgInstance = CreateNodecgInstance<
+	'nagoya-bingo-layout',
+	{},
+	ReplicantMap,
+	MessageMap
+>;
+
 declare global {
 
-	const nodecg: CreateNodecgInstance<
-		'nagoya-bingo-layout',
-		{},
-		ReplicantMap,
-		MessageMap
-	>;
+	const nodecg: BundleNodecgInstance & SpeedcontrolInstance;
 
 	const NodeCG: CreateNodecgConstructor<
 		'nagoya-bingo-layout',

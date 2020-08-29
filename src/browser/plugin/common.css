@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kosugi&family=Russo+One&display=swap');
 
 /* So the <v-app> always has a transparent background,
 otherwise it looks odd in the NodeCG dashboard panels. */

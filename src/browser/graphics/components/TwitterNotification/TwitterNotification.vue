@@ -24,7 +24,6 @@
             width="64px"
             height="64px"
           >
-            <img src="../../../common/img/twitter.svg">
           </v-avatar>
         </div>
       </transition>
@@ -83,11 +82,11 @@
 </style>
 
 <script lang="ts">
-/* global nodecg */
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import { ActiveTweet } from '../../../../nodecg/nodecg-twitter-widget';
 import TwitterNotificationTweet from './TwitterNotificationTweet.vue';
 import TwitterNotificationHashtag from './TwitterNotificationHashtag.vue';
+import { twitterNodecg } from '../../../plugin/nodecg';
 
 @Component({
   components: {
@@ -102,7 +101,7 @@ export default class TwitterNotification extends Vue {
   activeTweet: ActiveTweet = null;
 
   created(): void {
-    nodecg.Replicant('activeTweet', 'nodecg-twitter-widget').on('change', (newVal) => {
+    twitterNodecg.Replicant('activeTweet', 'nodecg-twitter-widget').on('change', (newVal) => {
       this.activeTweet = newVal;
     });
   }

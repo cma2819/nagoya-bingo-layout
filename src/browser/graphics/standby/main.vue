@@ -1,56 +1,119 @@
 <template>
   <overlay-base>
-    <div id="top">
-      <img
-        id="logo"
-        src="../../common/img/logo.png"
-      >
-      <div id="comment">
-        <p>
-          <span
-            ref="comment"
-            :class="{scroll: commentScroll}"
-          >{{ setupComment }}</span>
-        </p>
-      </div>
-      <twitter-notification :style="{width: '580px', height: '140px'}"></twitter-notification>
+    <div :style="{fontSize: '24px', position: 'absolute', top: '48px', left: '48px', padding: '16px', width: '640px', backgroundColor: 'rgba(0, 0, 0, 0.7)'}">
+      <upnext-run :upnext-run="upnextRun"></upnext-run>
+    </div>
+    <div :style="{fontSize: '20px', position: 'absolute', top: '312px', left: '48px', padding: '16px', width: '760px', backgroundColor: 'rgba(0, 0, 0, 0.7)'}">
+      <schedule-run
+        :current-index="currentRunIndex"
+        :runArray="runArray"
+      ></schedule-run>
     </div>
 
-    <setup-run-component
-      v-for="(run, index) in showRuns"
-      :key="index"
-      :setup-run="run"
-      :index="index"
-      :upcoming-time-seconds="upcomings[index]"
-    >
-    </setup-run-component>
+    <div :style="{
+				position: 'absolute',
+				right: '48px',
+				bottom: '24px',
+				width: '360px',
+				height: '360px',
+				backgroundColor: 'rgba(0, 0, 0, 0.7)',
+				padding: '24px'
+			}">
+      <transition
+        name="twitter"
+        mode="out-in"
+      >
+        <div
+          v-if="tweet"
+          :style="{font: '18px kosugi'}"
+          key="notify"
+        >
+          <twitter-notification-tweet :tweet="tweet"></twitter-notification-tweet>
+        </div>
+        <div
+          v-else
+          :style="{
+					width: '100%',
+					height: '100%'
+				}"
+          key="default"
+        >
+          <transition
+            name="logo"
+            mode="out-in"
+          >
+            <logo v-if="showLogo"></logo>
+            <twitter-hashtag v-else></twitter-hashtag>
+          </transition>
+        </div>
+      </transition>
+    </div>
   </overlay-base>
 </template>
+
+<style scoped>
+.logo-enter-active,
+.logo-leave-active,
+.twitter-enter-active,
+.twitter-leave-active {
+  transition: all 1s 1s;
+}
+
+.logo-enter {
+  opacity: 0;
+  transform: translateX(10px);
+}
+.logo-leave-to {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+.twitter-enter,
+.twitter-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+</style>
 
 <script lang="ts">
 /* global nodecg */
 import { Vue, Component } from 'vue-property-decorator';
-import clone from 'clone';
-import { SetupComment } from '../../../nodecg/replicants';
 import { RunDataArray } from '../../../nodecg/speedcontrol';
 import { SpeedcontrolCurrentRunIndex } from '../../../nodecg/speedcontrol-additions';
 
 import OverlayBase from '../OverlayBase.vue';
-import SetupRunComponent from './components/SetupRunComponent.vue';
+import UpnextRun from './components/UpnextRunComponent.vue';
+import ScheduleRun from './components/ScheduleRunComponent.vue';
 import TwitterNotification from '../components/TwitterNotification/TwitterNotification.vue';
+import Logo from '../components/Logo/LogoComponent.vue';
+import TwitterHashtag from '../components/TwitterNotification/TwitterNotificationHashtag.vue'
+import TwitterNotificationTweet from '../components/TwitterNotification/TwitterNotificationTweet.vue';
+
+import { SpeedcontrolInstance } from '../../global';
+import { additionNodecg, twitterNodecg } from '../../plugin/nodecg';
+import { speedcontrolModule } from '../../plugin/speedcontrol';
+import { RunData } from '../../../nodecg/external/speedcontrol/RunData';
+import { ActiveTweet } from '../../../nodecg/nodecg-twitter-widget';
 
 @Component({
   components: {
     OverlayBase,
-    SetupRunComponent,
-    TwitterNotification
+    ScheduleRun,
+    UpnextRun,
+    TwitterNotification,
+    Logo,
+    TwitterHashtag,
+    TwitterNotificationTweet,
   }
 })
 export default class App extends Vue {
-  setupComment: SetupComment = '';
+  speedcontrol = nodecg as SpeedcontrolInstance;
   currentRunIndex: SpeedcontrolCurrentRunIndex = 0;
-  runArray: RunDataArray = [];
-  commentScroll = false;
+  showLogo = true;
+  tweet: ActiveTweet | null = null;
+
+  get upnextRun(): RunData {
+    return this.runArray[this.currentRunIndex];
+  }
 
   get showRuns(): RunDataArray {
     return this.runArray.slice(this.currentRunIndex, this.currentRunIndex + 4);
@@ -67,160 +130,19 @@ export default class App extends Vue {
   }
 
   created(): void {
-    nodecg.Replicant('setup-comment').on('change', (newVal) => {
-      this.setupComment = newVal;
-    });
-    nodecg.Replicant('speedcontrolCurrentRunIndex', 'speedcontrol-additions').on('change', (newVal) => {
+    additionNodecg.Replicant('speedcontrolCurrentRunIndex', 'speedcontrol-additions').on('change', (newVal) => {
       this.currentRunIndex = newVal;
     });
-    nodecg.Replicant('runDataArray', 'nodecg-speedcontrol').on('change', (newVal) => {
-      this.runArray = clone(newVal);
+    twitterNodecg.Replicant('activeTweet', 'nodecg-twitter-widget').on('change', (newVal) => {
+      this.tweet = newVal;
     });
+    setInterval(() => {
+      this.showLogo = !this.showLogo;
+    }, 10000)
   }
 
-  updated(): void {
-    const commentElm = this.$refs['comment'] as HTMLElement;
-    if (commentElm.clientWidth > 400) {
-      this.commentScroll = true;
-    } else {
-      this.commentScroll = false;
-    }
+  get runArray(): RunDataArray {
+    return speedcontrolModule.runDataArray;
   }
 }
 </script>
-
-<style>
-body {
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
-#top {
-  margin-top: 8px;
-  width: auto;
-  margin-bottom: 24px;
-}
-
-#top * {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-#logo {
-  width: 128px;
-  margin-right: 32px;
-}
-
-#comment,
-.game {
-  background-color: rgba(32, 64, 128, 50%);
-}
-
-#comment {
-  width: 400px;
-  font-size: 24px;
-  margin-right: 32px;
-  padding: 0 0.3em;
-  border-radius: 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  position: relative;
-}
-
-.game {
-  margin-bottom: 8px;
-  padding: 4px 8px;
-  border-bottom: solid 4px;
-  border-radius: 4px;
-}
-
-.text-datas {
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.upcoming {
-  width: 1000px;
-  font-size: 1.1em;
-  border-color: rgb(247, 255, 25);
-}
-
-.upcoming .coming-time {
-  margin-bottom: 0.2em;
-}
-
-.upcoming .title span {
-  position: relative;
-  font-size: 1.7em;
-  margin-right: 4em;
-}
-
-.upcoming .category {
-  margin-top: -0.4em;
-  margin-bottom: 0.6em;
-}
-
-.upcoming .platform,
-.upcoming .runner {
-  margin-top: -0.4em;
-}
-
-.next {
-  width: 800px;
-  font-size: 0.96em;
-}
-
-.next .title span {
-  font-size: 1.5em;
-  position: relative;
-}
-
-.next .category {
-  margin-top: -0.4em;
-}
-
-#next-game-1 {
-  margin-left: 0px;
-  border-color: rgb(67, 243, 203);
-}
-
-#next-game-2 {
-  margin-left: 100px;
-  border-color: rgb(36, 114, 198);
-}
-
-#next-game-3 {
-  margin-left: 200px;
-  border-color: rgb(244, 40, 153);
-}
-
-.scroll {
-  position: relative;
-  animation: marquee 20s linear infinite;
-}
-
-@keyframes marquee {
-  0% {
-    left: 0;
-  }
-  10% {
-    left: 0%;
-  }
-  99% {
-    left: -100%;
-    opacity: 1;
-  }
-  99.001% {
-    left: -100%;
-    opacity: 0;
-  }
-  99.002% {
-    left: 0%;
-    opacity: 0;
-  }
-  100% {
-    left: 0%;
-    opacity: 1;
-  }
-}
-</style>

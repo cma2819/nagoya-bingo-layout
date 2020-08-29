@@ -1,0 +1,28 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"row": {
+			"oneOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "null"
+				}
+			]
+		},
+		"slots": {
+			"type": "array",
+			"items": {
+				"$ref": "lib/bingoSlot.json"
+			},
+			"maxLength": 5
+		}
+	},
+	"required": [
+		"row",
+		"slots"
+	]
+}
