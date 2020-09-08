@@ -55151,202 +55151,7 @@ render._withStripped = true
       
       }
     })();
-},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","./components/ClippedCanvas/ClippedCanvas.vue":"components/ClippedCanvas/ClippedCanvas.vue","../plugin/nodecg":"../plugin/nodecg.ts","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Nameplate/Nameplate.vue":[function(require,module,exports) {
-"use strict";
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-var __extends = this && this.__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
-  var c = arguments.length,
-      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-      d;
-  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-  }
-  return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var vue_property_decorator_1 = require("vue-property-decorator");
-
-var Nameplate =
-/** @class */
-function (_super) {
-  __extends(Nameplate, _super);
-
-  function Nameplate() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  __decorate([vue_property_decorator_1.Prop(Number)], Nameplate.prototype, "displaySocial", void 0);
-
-  __decorate([vue_property_decorator_1.Prop(String)], Nameplate.prototype, "name", void 0);
-
-  __decorate([vue_property_decorator_1.Prop(Object)], Nameplate.prototype, "social", void 0);
-
-  Nameplate = __decorate([vue_property_decorator_1.Component], Nameplate);
-  return Nameplate;
-}(vue_property_decorator_1.Vue);
-
-exports.default = Nameplate;
-        var $253a4e = exports.default || module.exports;
-      
-      if (typeof $253a4e === 'function') {
-        $253a4e = $253a4e.options;
-      }
-    
-        /* template */
-        Object.assign($253a4e, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "info",
-      style: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-around",
-        alignItems: "center"
-      },
-      attrs: { id: "runner-info" }
-    },
-    [
-      _c("div", [
-        _c("p", { attrs: { id: "runner-name" } }, [
-          _vm._v("\n        " + _vm._s(_vm.name) + "\n      ")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", {
-        style: {
-          width: "100%",
-          borderBottom: "2px solid #0067bc"
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          style: {
-            display: "flex",
-            justifyContent: "space-between",
-            font: "50% Russo One",
-            width: "100%",
-            padding: "0 1em"
-          }
-        },
-        [
-          _c("div", [_vm._v("\n        RUNNER\n      ")]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "social" },
-            [
-              _c("transition", { attrs: { name: "social", mode: "out-in" } }, [
-                _vm.displaySocial === 0 && _vm.social.twitch
-                  ? _c("div", { key: "twitch" }, [
-                      _c("span", { staticClass: "icon" }, [
-                        _c("i", { staticClass: "fab fa-twitch" })
-                      ]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v(_vm._s(_vm.social.twitch))])
-                    ])
-                  : _vm.displaySocial === 1 && _vm.social.nico
-                  ? _c("div", { key: "nico" }, [
-                      _c("span", [_vm._v(_vm._s(_vm.social.nico))])
-                    ])
-                  : _vm.displaySocial === 2 && _vm.social.youtube
-                  ? _c("div", { key: "youtube" }, [
-                      _c("span", { staticClass: "icon" }, [
-                        _c("i", { staticClass: "fab fa-youtube" })
-                      ]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v(_vm._s(_vm.social.youtube))])
-                    ])
-                  : _vm.displaySocial === 3 && _vm.social.twitter
-                  ? _c("div", { key: "twitter" }, [
-                      _c("span", { staticClass: "icon" }, [
-                        _c("i", { staticClass: "fab fa-twitter" })
-                      ]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v(_vm._s(_vm.social.twitter))])
-                    ])
-                  : _vm._e()
-              ])
-            ],
-            1
-          )
-        ]
-      )
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-253a4e",
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$253a4e', $253a4e);
-          } else {
-            api.reload('$253a4e', $253a4e);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Nameplate/RaceNameplate.vue":[function(require,module,exports) {
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","./components/ClippedCanvas/ClippedCanvas.vue":"components/ClippedCanvas/ClippedCanvas.vue","../plugin/nodecg":"../plugin/nodecg.ts","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Nameplate/RaceNameplate.vue":[function(require,module,exports) {
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -55565,305 +55370,6 @@ render._withStripped = true
             api.createRecord('$a08c66', $a08c66);
           } else {
             api.reload('$a08c66', $a08c66);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Timer/Timer.vue":[function(require,module,exports) {
-"use strict";
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-var __extends = this && this.__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
-  var c = arguments.length,
-      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-      d;
-  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-  }
-  return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var vue_property_decorator_1 = require("vue-property-decorator");
-
-var Timer =
-/** @class */
-function (_super) {
-  __extends(Timer, _super);
-
-  function Timer() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  Object.defineProperty(Timer.prototype, "timeSegmented", {
-    get: function get() {
-      return this.formattedTime.split('');
-    },
-    enumerable: true,
-    configurable: true
-  });
-
-  __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "timeStatus", void 0);
-
-  __decorate([vue_property_decorator_1.Prop(Boolean)], Timer.prototype, "small", void 0);
-
-  __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "formattedTime", void 0);
-
-  __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "estimate", void 0);
-
-  Timer = __decorate([vue_property_decorator_1.Component], Timer);
-  return Timer;
-}(vue_property_decorator_1.Vue);
-
-exports.default = Timer;
-        var $e1d25b = exports.default || module.exports;
-      
-      if (typeof $e1d25b === 'function') {
-        $e1d25b = $e1d25b.options;
-      }
-    
-        /* template */
-        Object.assign($e1d25b, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      style: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-around",
-        alignItems: "center"
-      }
-    },
-    [
-      _c("div", { attrs: { id: "time-info" } }, [
-        _c(
-          "p",
-          {
-            staticClass: "time",
-            class: [_vm.timeStatus, { small: _vm.small }],
-            attrs: { id: "timer" }
-          },
-          _vm._l(_vm.timeSegmented, function(str, index) {
-            return _c("span", { key: index, staticClass: "segment" }, [
-              _vm._v(_vm._s(str))
-            ])
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", {
-        style: {
-          width: "100%",
-          borderBottom: "2px solid #0067bc"
-        }
-      }),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "est-info" } }, [
-        _vm._v("\n      EST:\n      " + _vm._s(_vm.estimate) + "\n    ")
-      ])
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-e1d25b",
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$e1d25b', $e1d25b);
-          } else {
-            api.reload('$e1d25b', $e1d25b);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/TwitterNotification/TwitterNotificationTweet.vue":[function(require,module,exports) {
-"use strict";
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-var __extends = this && this.__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
-  var c = arguments.length,
-      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-      d;
-  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-  }
-  return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var vue_property_decorator_1 = require("vue-property-decorator");
-
-var TwitterNotificationTweet =
-/** @class */
-function (_super) {
-  __extends(TwitterNotificationTweet, _super);
-
-  function TwitterNotificationTweet() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  __decorate([vue_property_decorator_1.Prop(Object)], TwitterNotificationTweet.prototype, "tweet", void 0);
-
-  TwitterNotificationTweet = __decorate([vue_property_decorator_1.Component], TwitterNotificationTweet);
-  return TwitterNotificationTweet;
-}(vue_property_decorator_1.Vue);
-
-exports.default = TwitterNotificationTweet;
-        var $98caac = exports.default || module.exports;
-      
-      if (typeof $98caac === 'function') {
-        $98caac = $98caac.options;
-      }
-    
-        /* template */
-        Object.assign($98caac, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "tweet-on" } }, [
-    _c("div", {
-      style: {
-        backgroundImage: "url(" + _vm.tweet.profileImageUrl + ")",
-        backgroundSize: "cover",
-        position: "absolute",
-        top: 0,
-        left: 0,
-        height: "3em",
-        width: "3em"
-      }
-    }),
-    _vm._v(" "),
-    _c("div", { attrs: { id: "tweet-account" } }, [
-      _c("p", { attrs: { id: "tweet-name" } }, [
-        _vm._v("\n        " + _vm._s(_vm.tweet.name) + "\n      ")
-      ]),
-      _vm._v(" "),
-      _c("p", { attrs: { id: "tweet-id" } }, [
-        _vm._v("\n        @" + _vm._s(_vm.tweet.screenName) + "\n      ")
-      ])
-    ]),
-    _vm._v(" "),
-    _c("p", { attrs: { id: "tweet-body" } }, [
-      _vm._v("\n      " + _vm._s(_vm.tweet.text) + "\n    ")
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-98caac",
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$98caac', $98caac);
-          } else {
-            api.reload('$98caac', $98caac);
           }
         }
 
@@ -56333,7 +55839,306 @@ render._withStripped = true
         
       }
     })();
-},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","./BingoCardSlotComponent.vue":"components/Bingo/BingoCardSlotComponent.vue","../../../plugin/nodecg":"../plugin/nodecg.ts","clone":"../../../node_modules/clone/clone.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Bingo/BingoRowComponent.vue":[function(require,module,exports) {
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","./BingoCardSlotComponent.vue":"components/Bingo/BingoCardSlotComponent.vue","../../../plugin/nodecg":"../plugin/nodecg.ts","clone":"../../../node_modules/clone/clone.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Timer/Timer.vue":[function(require,module,exports) {
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var __extends = this && this.__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+      }
+    };
+
+    return _extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    _extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+      d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var vue_property_decorator_1 = require("vue-property-decorator");
+
+var Timer =
+/** @class */
+function (_super) {
+  __extends(Timer, _super);
+
+  function Timer() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Object.defineProperty(Timer.prototype, "timeSegmented", {
+    get: function get() {
+      return this.formattedTime.split('');
+    },
+    enumerable: true,
+    configurable: true
+  });
+
+  __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "timeStatus", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(Boolean)], Timer.prototype, "small", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "formattedTime", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(String)], Timer.prototype, "estimate", void 0);
+
+  Timer = __decorate([vue_property_decorator_1.Component], Timer);
+  return Timer;
+}(vue_property_decorator_1.Vue);
+
+exports.default = Timer;
+        var $e1d25b = exports.default || module.exports;
+      
+      if (typeof $e1d25b === 'function') {
+        $e1d25b = $e1d25b.options;
+      }
+    
+        /* template */
+        Object.assign($e1d25b, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      style: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around",
+        alignItems: "center"
+      }
+    },
+    [
+      _c("div", { attrs: { id: "time-info" } }, [
+        _c(
+          "p",
+          {
+            staticClass: "time",
+            class: [_vm.timeStatus, { small: _vm.small }],
+            attrs: { id: "timer" }
+          },
+          _vm._l(_vm.timeSegmented, function(str, index) {
+            return _c("span", { key: index, staticClass: "segment" }, [
+              _vm._v(_vm._s(str))
+            ])
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", {
+        style: {
+          width: "100%",
+          borderBottom: "2px solid #0067bc"
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "est-info" } }, [
+        _vm._v("\n      EST:\n      " + _vm._s(_vm.estimate) + "\n    ")
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-e1d25b",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$e1d25b', $e1d25b);
+          } else {
+            api.reload('$e1d25b', $e1d25b);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/TwitterNotification/TwitterNotificationTweet.vue":[function(require,module,exports) {
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var __extends = this && this.__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+      }
+    };
+
+    return _extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    _extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+      d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var vue_property_decorator_1 = require("vue-property-decorator");
+
+var TwitterNotificationTweet =
+/** @class */
+function (_super) {
+  __extends(TwitterNotificationTweet, _super);
+
+  function TwitterNotificationTweet() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  __decorate([vue_property_decorator_1.Prop(Object)], TwitterNotificationTweet.prototype, "tweet", void 0);
+
+  TwitterNotificationTweet = __decorate([vue_property_decorator_1.Component], TwitterNotificationTweet);
+  return TwitterNotificationTweet;
+}(vue_property_decorator_1.Vue);
+
+exports.default = TwitterNotificationTweet;
+        var $98caac = exports.default || module.exports;
+      
+      if (typeof $98caac === 'function') {
+        $98caac = $98caac.options;
+      }
+    
+        /* template */
+        Object.assign($98caac, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "tweet-on" } }, [
+    _c("div", {
+      style: {
+        backgroundImage: "url(" + _vm.tweet.profileImageUrl + ")",
+        backgroundSize: "cover",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        height: "3em",
+        width: "3em"
+      }
+    }),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "tweet-account" } }, [
+      _c("p", { attrs: { id: "tweet-name" } }, [
+        _vm._v("\n        " + _vm._s(_vm.tweet.name) + "\n      ")
+      ]),
+      _vm._v(" "),
+      _c("p", { attrs: { id: "tweet-id" } }, [
+        _vm._v("\n        @" + _vm._s(_vm.tweet.screenName) + "\n      ")
+      ])
+    ]),
+    _vm._v(" "),
+    _c("p", { attrs: { id: "tweet-body" } }, [
+      _vm._v("\n      " + _vm._s(_vm.tweet.text) + "\n    ")
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-98caac",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$98caac', $98caac);
+          } else {
+            api.reload('$98caac', $98caac);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Bingo/BingoRowComponent.vue":[function(require,module,exports) {
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -57418,7 +57223,7 @@ speedcontrolMutations.forEach(function (_a) {
     mutator(clone_1.default(newVal));
   });
 });
-},{"vuex-module-decorators":"../../../node_modules/vuex-module-decorators/dist/esm/index.js","./store":"../plugin/store.ts","clone":"../../../node_modules/clone/clone.js"}],"views/RaceViewComponent.vue":[function(require,module,exports) {
+},{"vuex-module-decorators":"../../../node_modules/vuex-module-decorators/dist/esm/index.js","./store":"../plugin/store.ts","clone":"../../../node_modules/clone/clone.js"}],"views/SingleCoopViewComponent.vue":[function(require,module,exports) {
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -57492,17 +57297,15 @@ var clone_1 = __importDefault(require("clone"));
 
 var RunOverlayBase_vue_1 = __importDefault(require("../RunOverlayBase.vue"));
 
-var Nameplate_vue_1 = __importDefault(require("../components/Nameplate/Nameplate.vue"));
-
 var RaceNameplate_vue_1 = __importDefault(require("../components/Nameplate/RaceNameplate.vue"));
-
-var Timer_vue_1 = __importDefault(require("../components/Timer/Timer.vue"));
-
-var TwitterNotificationTweet_vue_1 = __importDefault(require("../components/TwitterNotification/TwitterNotificationTweet.vue"));
 
 var GameNameplate_vue_1 = __importDefault(require("../components/Nameplate/GameNameplate.vue"));
 
 var BingoCardComponent_vue_1 = __importDefault(require("../components/Bingo/BingoCardComponent.vue"));
+
+var Timer_vue_1 = __importDefault(require("../components/Timer/Timer.vue"));
+
+var TwitterNotificationTweet_vue_1 = __importDefault(require("../components/TwitterNotification/TwitterNotificationTweet.vue"));
 
 var BingoRowComponent_vue_1 = __importDefault(require("../components/Bingo/BingoRowComponent.vue"));
 
@@ -57512,12 +57315,12 @@ var nodecg_1 = require("../../plugin/nodecg");
 
 var speedcontrol_1 = require("../../plugin/speedcontrol");
 
-var RaceViewComponent =
+var SingleCoopViewComponent =
 /** @class */
 function (_super) {
-  __extends(RaceViewComponent, _super);
+  __extends(SingleCoopViewComponent, _super);
 
-  function RaceViewComponent() {
+  function SingleCoopViewComponent() {
     var _this = _super !== null && _super.apply(this, arguments) || this;
 
     _this.currentIndex = 0;
@@ -57531,7 +57334,7 @@ function (_super) {
     return _this;
   }
 
-  Object.defineProperty(RaceViewComponent.prototype, "currentRun", {
+  Object.defineProperty(SingleCoopViewComponent.prototype, "currentRun", {
     get: function get() {
       if (!this.runDataArray) {
         return null;
@@ -57542,7 +57345,7 @@ function (_super) {
     enumerable: true,
     configurable: true
   });
-  Object.defineProperty(RaceViewComponent.prototype, "currentSocials", {
+  Object.defineProperty(SingleCoopViewComponent.prototype, "currentSocials", {
     get: function get() {
       var _this = this;
 
@@ -57571,7 +57374,7 @@ function (_super) {
     enumerable: true,
     configurable: true
   });
-  Object.defineProperty(RaceViewComponent.prototype, "timer", {
+  Object.defineProperty(SingleCoopViewComponent.prototype, "timer", {
     get: function get() {
       if (!this.speedcontrolTimer) {
         return {
@@ -57588,7 +57391,7 @@ function (_super) {
     enumerable: true,
     configurable: true
   });
-  Object.defineProperty(RaceViewComponent.prototype, "finishedTime", {
+  Object.defineProperty(SingleCoopViewComponent.prototype, "finishedTime", {
     get: function get() {
       var _this = this;
 
@@ -57612,7 +57415,7 @@ function (_super) {
     configurable: true
   });
 
-  RaceViewComponent.prototype.created = function () {
+  SingleCoopViewComponent.prototype.created = function () {
     var _this = this;
 
     nodecg_1.additionNodecg.Replicant('speedcontrolCurrentRunIndex', 'speedcontrol-additions').on('change', function (newVal) {
@@ -57629,7 +57432,7 @@ function (_super) {
     });
   };
 
-  RaceViewComponent.prototype.mounted = function () {
+  SingleCoopViewComponent.prototype.mounted = function () {
     var _this = this;
 
     setInterval(function () {
@@ -57643,14 +57446,14 @@ function (_super) {
     }, 20 * 1000);
   };
 
-  Object.defineProperty(RaceViewComponent.prototype, "runDataArray", {
+  Object.defineProperty(SingleCoopViewComponent.prototype, "runDataArray", {
     get: function get() {
       return speedcontrol_1.speedcontrolModule.runDataArray;
     },
     enumerable: true,
     configurable: true
   });
-  Object.defineProperty(RaceViewComponent.prototype, "speedcontrolTimer", {
+  Object.defineProperty(SingleCoopViewComponent.prototype, "speedcontrolTimer", {
     get: function get() {
       return speedcontrol_1.speedcontrolModule.timer;
     },
@@ -57658,36 +57461,33 @@ function (_super) {
     configurable: true
   });
 
-  __decorate([vue_property_decorator_1.Prop(Array)], RaceViewComponent.prototype, "videoPaths", void 0);
+  __decorate([vue_property_decorator_1.Prop(Object)], SingleCoopViewComponent.prototype, "videoPath", void 0);
 
-  __decorate([vue_property_decorator_1.Prop(Array)], RaceViewComponent.prototype, "paddings", void 0);
+  __decorate([vue_property_decorator_1.Prop(Array)], SingleCoopViewComponent.prototype, "paddings", void 0);
 
-  __decorate([vue_property_decorator_1.Prop(Boolean)], RaceViewComponent.prototype, "small", void 0);
-
-  RaceViewComponent = __decorate([vue_property_decorator_1.Component({
+  SingleCoopViewComponent = __decorate([vue_property_decorator_1.Component({
     components: {
       RunOverlayBase: RunOverlayBase_vue_1.default,
-      Nameplate: Nameplate_vue_1.default,
       RaceNameplate: RaceNameplate_vue_1.default,
-      Timer: Timer_vue_1.default,
-      TwitterNotificationTweet: TwitterNotificationTweet_vue_1.default,
       GameNameplate: GameNameplate_vue_1.default,
       BingoCard: BingoCardComponent_vue_1.default,
+      Timer: Timer_vue_1.default,
+      TwitterNotificationTweet: TwitterNotificationTweet_vue_1.default,
       BingoRow: BingoRowComponent_vue_1.default
     }
-  })], RaceViewComponent);
-  return RaceViewComponent;
+  })], SingleCoopViewComponent);
+  return SingleCoopViewComponent;
 }(vue_property_decorator_1.Vue);
 
-exports.default = RaceViewComponent;
-        var $bb9101 = exports.default || module.exports;
+exports.default = SingleCoopViewComponent;
+        var $f3ea07 = exports.default || module.exports;
       
-      if (typeof $bb9101 === 'function') {
-        $bb9101 = $bb9101.options;
+      if (typeof $f3ea07 === 'function') {
+        $f3ea07 = $f3ea07.options;
       }
     
         /* template */
-        Object.assign($bb9101, (function () {
+        Object.assign($f3ea07, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -57698,176 +57498,11 @@ exports.default = RaceViewComponent;
         {
           attrs: {
             "run-data": _vm.currentRun,
-            "clip-paths": _vm.videoPaths,
-            paddings: _vm.paddings,
-            small: _vm.small
+            "clip-paths": [_vm.videoPath],
+            paddings: _vm.paddings
           }
         },
         [
-          _c("transition", { attrs: { name: "twitter" } }, [
-            _vm.tweet
-              ? _c(
-                  "div",
-                  {
-                    style: {
-                      position: "absolute",
-                      top: "0",
-                      right: "0",
-                      width: "340px",
-                      font: "14px kosugi",
-                      backgroundColor: "white",
-                      color: "black",
-                      padding: "0.5em",
-                      border: "3px #1DA1F2 solid",
-                      borderTop: "none",
-                      borderRight: "none",
-                      borderRadius: "0 0 0 10px",
-                      zIndex: 99
-                    }
-                  },
-                  [
-                    _c("twitter-notification-tweet", {
-                      attrs: { tweet: _vm.tweet }
-                    })
-                  ],
-                  1
-                )
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              style: {
-                position: "absolute",
-                top: "0px",
-                left: "0px",
-                height: "160px",
-                width: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                font: "12px Kosugi"
-              }
-            },
-            [
-              _c(
-                "div",
-                {
-                  style: {
-                    height: "100%",
-                    width: "800px"
-                  }
-                },
-                [
-                  _c("bingo-card"),
-                  _vm._v(" "),
-                  _c("transition", { attrs: { name: "bingo-row" } }, [
-                    _vm.bingoFocusRow.row !== null
-                      ? _c(
-                          "div",
-                          {
-                            style: {
-                              position: "absolute",
-                              top: "0px",
-                              left: "0px",
-                              width: "100%",
-                              height: "100%",
-                              backgroundColor: "rgba(0, 0, 0, 0.8)",
-                              display: "flex",
-                              justifyContent: "center",
-                              fontSize: "16px"
-                            }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                style: {
-                                  width: "720px"
-                                }
-                              },
-                              [
-                                _c("bingo-row", {
-                                  attrs: { "bingo-row": _vm.bingoFocusRow }
-                                })
-                              ],
-                              1
-                            )
-                          ]
-                        )
-                      : _vm._e()
-                  ])
-                ],
-                1
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "p1",
-              style: {
-                position: "absolute",
-                top: _vm.videoPaths[0].y + _vm.videoPaths[0].height + "px",
-                left: _vm.videoPaths[0].x + "px",
-                width: _vm.videoPaths[0].width + "px",
-                font: "22px Kosugi",
-                backgroundColor: "rgba(0, 0, 0, 0.7)",
-                padding: "0.5em"
-              }
-            },
-            [
-              _vm.currentRun.teams[0]
-                ? _c("race-nameplate", {
-                    attrs: {
-                      name: _vm.currentRun.teams[0].players[0].name,
-                      social: _vm.currentSocials[0],
-                      "display-social": _vm.displaySocial,
-                      "finished-time": _vm.finishedTime[0],
-                      sideColor: "#e53935",
-                      time: _vm.finishedTime[0]
-                    }
-                  })
-                : _vm._e()
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "p2",
-              style: {
-                position: "absolute",
-                top: _vm.videoPaths[1].y + _vm.videoPaths[1].height + "px",
-                left: _vm.videoPaths[1].x + "px",
-                width: _vm.videoPaths[1].width + "px",
-                font: "22px Kosugi",
-                backgroundColor: "rgba(0, 0, 0, 0.7)",
-                padding: "0.5em"
-              }
-            },
-            [
-              _vm.currentRun.teams[1]
-                ? _c("race-nameplate", {
-                    attrs: {
-                      opposite: "",
-                      name: _vm.currentRun.teams[1].players[0].name,
-                      social: _vm.currentSocials[1],
-                      "display-social": _vm.displaySocial,
-                      "finished-time": _vm.finishedTime[1],
-                      sideColor: "#1e88e5",
-                      time: _vm.finishedTime[1]
-                    }
-                  })
-                : _vm._e()
-            ],
-            1
-          ),
-          _vm._v(" "),
           _c(
             "div",
             {
@@ -57875,12 +57510,11 @@ exports.default = RaceViewComponent;
                 position: "absolute",
                 bottom: "0px",
                 left: "0px",
-                height: "100px",
-                width: "65%",
+                height: "144px",
+                width: _vm.videoPath.width + "px",
                 backgroundColor: "rgba(0, 0, 0, 0.7)",
                 borderTop: "2px solid #0067bc",
-                borderRight: "1px solid #0067bc",
-                font: "bold 24px kosugi"
+                font: "bold 32px kosugi"
               }
             },
             [
@@ -57898,30 +57532,176 @@ exports.default = RaceViewComponent;
             {
               style: {
                 position: "absolute",
+                top: "0px",
                 right: "0px",
-                bottom: "0px",
-                height: "100px",
-                width: "35%",
-                backgroundColor: "rgba(0, 0, 0, 0.7)",
-                borderTop: "2px solid #0067bc",
-                borderLeft: "1px solid #0067bc",
-                font: "32px Russo One",
-                padding: "0.2em"
+                height: (1280 - _vm.videoPath.width) * (3 / 4) + "px",
+                width: 1280 - _vm.videoPath.width + "px",
+                borderLeft: "2px solid #0067bc",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                alignItems: "center",
+                font: "12px Kosugi"
               }
             },
             [
-              _c("timer", {
-                attrs: {
-                  "formatted-time": _vm.timer.formattedTime,
-                  "time-status": _vm.timer.status,
-                  estimate: _vm.currentRun.estimate
-                }
-              })
+              _c("bingo-card"),
+              _vm._v(" "),
+              _c("transition", { attrs: { name: "bingo-row" } }, [
+                _vm.bingoFocusRow.row !== null
+                  ? _c(
+                      "div",
+                      {
+                        style: {
+                          position: "absolute",
+                          top: "0px",
+                          left: "0px",
+                          width: "100%",
+                          backgroundColor: "rgba(0, 0, 0, 0.8)",
+                          display: "flex",
+                          justifyContent: "center",
+                          fontSize: "16px"
+                        }
+                      },
+                      [
+                        _c("bingo-row", {
+                          attrs: { "bingo-row": _vm.bingoFocusRow }
+                        })
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("transition", { attrs: { name: "twitter" } }, [
+                _vm.tweet
+                  ? _c(
+                      "div",
+                      {
+                        style: {
+                          position: "absolute",
+                          top: "0",
+                          left: "0",
+                          width: "100%",
+                          font: "18px kosugi",
+                          backgroundColor: "white",
+                          color: "black",
+                          padding: "0.5em",
+                          border: "3px #1DA1F2 solid",
+                          borderTop: "none",
+                          borderRight: "none",
+                          borderRadius: "0 0 0 10px"
+                        }
+                      },
+                      [
+                        _c("twitter-notification-tweet", {
+                          attrs: { tweet: _vm.tweet }
+                        })
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              ])
             ],
             1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              style: {
+                position: "absolute",
+                bottom: "0px",
+                right: "0px",
+                height: 720 - (1280 - _vm.videoPath.width) * (3 / 4) + "px",
+                width: 1280 - _vm.videoPath.width + "px",
+                borderLeft: "2px solid #0067bc",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-evenly",
+                alignItems: "center"
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  style: {
+                    width: "100%",
+                    backgroundColor: "rgba(0, 0, 0, 0.7)",
+                    font: "24px Kosugi",
+                    padding: "0.3em"
+                  }
+                },
+                [
+                  _vm.currentRun.teams[0]
+                    ? _c("race-nameplate", {
+                        attrs: {
+                          name: _vm.currentRun.teams[0].players[0].name,
+                          social: _vm.currentSocials[0],
+                          "display-social": _vm.displaySocial,
+                          "finished-time": _vm.finishedTime[0],
+                          sideColor: "#e53935",
+                          time: _vm.finishedTime[0]
+                        }
+                      })
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  style: {
+                    width: "100%",
+                    backgroundColor: "rgba(0, 0, 0, 0.7)",
+                    font: "24px Kosugi",
+                    padding: "0.3em"
+                  }
+                },
+                [
+                  _vm.currentRun.teams[1]
+                    ? _c("race-nameplate", {
+                        attrs: {
+                          opposite: "",
+                          name: _vm.currentRun.teams[1].players[0].name,
+                          social: _vm.currentSocials[1],
+                          "display-social": _vm.displaySocial,
+                          "finished-time": _vm.finishedTime[1],
+                          sideColor: "#1e88e5",
+                          time: _vm.finishedTime[1]
+                        }
+                      })
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  style: {
+                    width: "80%",
+                    backgroundColor: "rgba(0, 0, 0, 0.7)",
+                    font: "42px Russo One",
+                    padding: "0.3em"
+                  }
+                },
+                [
+                  _c("timer", {
+                    attrs: {
+                      "formatted-time": _vm.timer.formattedTime,
+                      "time-status": _vm.timer.status,
+                      estimate: _vm.currentRun.estimate
+                    }
+                  })
+                ],
+                1
+              )
+            ]
           )
-        ],
-        1
+        ]
       )
     : _vm._e()
 }
@@ -57932,7 +57712,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-bb9101",
+            _scopeId: "data-v-f3ea07",
             functional: undefined
           };
         })());
@@ -57945,9 +57725,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$bb9101', $bb9101);
+            api.createRecord('$f3ea07', $f3ea07);
           } else {
-            api.reload('$bb9101', $bb9101);
+            api.reload('$f3ea07', $f3ea07);
           }
         }
 
@@ -57958,7 +57738,7 @@ render._withStripped = true
       
       }
     })();
-},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","clone":"../../../node_modules/clone/clone.js","../RunOverlayBase.vue":"RunOverlayBase.vue","../components/Nameplate/Nameplate.vue":"components/Nameplate/Nameplate.vue","../components/Nameplate/RaceNameplate.vue":"components/Nameplate/RaceNameplate.vue","../components/Timer/Timer.vue":"components/Timer/Timer.vue","../components/TwitterNotification/TwitterNotificationTweet.vue":"components/TwitterNotification/TwitterNotificationTweet.vue","../components/Nameplate/GameNameplate.vue":"components/Nameplate/GameNameplate.vue","../components/Bingo/BingoCardComponent.vue":"components/Bingo/BingoCardComponent.vue","../components/Bingo/BingoRowComponent.vue":"components/Bingo/BingoRowComponent.vue","../util":"util.ts","../../plugin/nodecg":"../plugin/nodecg.ts","../../plugin/speedcontrol":"../plugin/speedcontrol.ts","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"sd_2/main.vue":[function(require,module,exports) {
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","clone":"../../../node_modules/clone/clone.js","../RunOverlayBase.vue":"RunOverlayBase.vue","../components/Nameplate/RaceNameplate.vue":"components/Nameplate/RaceNameplate.vue","../components/Nameplate/GameNameplate.vue":"components/Nameplate/GameNameplate.vue","../components/Bingo/BingoCardComponent.vue":"components/Bingo/BingoCardComponent.vue","../components/Timer/Timer.vue":"components/Timer/Timer.vue","../components/TwitterNotification/TwitterNotificationTweet.vue":"components/TwitterNotification/TwitterNotificationTweet.vue","../components/Bingo/BingoRowComponent.vue":"components/Bingo/BingoRowComponent.vue","../util":"util.ts","../../plugin/nodecg":"../plugin/nodecg.ts","../../plugin/speedcontrol":"../plugin/speedcontrol.ts","_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"hd_coop/main.vue":[function(require,module,exports) {
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -58011,7 +57791,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var vue_property_decorator_1 = require("vue-property-decorator");
 
-var RaceViewComponent_vue_1 = __importDefault(require("../views/RaceViewComponent.vue"));
+var SingleCoopViewComponent_vue_1 = __importDefault(require("../views/SingleCoopViewComponent.vue"));
 
 var App =
 /** @class */
@@ -58024,32 +57804,29 @@ function (_super) {
 
   App = __decorate([vue_property_decorator_1.Component({
     components: {
-      RaceViewComponent: RaceViewComponent_vue_1.default
+      SingleCoopViewComponent: SingleCoopViewComponent_vue_1.default
     }
   })], App);
   return App;
 }(vue_property_decorator_1.Vue);
 
 exports.default = App;
-        var $67c23d = exports.default || module.exports;
+        var $3c827f = exports.default || module.exports;
       
-      if (typeof $67c23d === 'function') {
-        $67c23d = $67c23d.options;
+      if (typeof $3c827f === 'function') {
+        $3c827f = $3c827f.options;
       }
     
         /* template */
-        Object.assign($67c23d, (function () {
+        Object.assign($3c827f, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("race-view-component", {
+  return _c("single-coop-view-component", {
     attrs: {
       paddings: ["16px", "64px"],
-      "video-paths": [
-        { x: 90, y: 168, width: 380 * (4 / 3), height: 380 },
-        { x: 680, y: 168, width: 380 * (4 / 3), height: 380 }
-      ]
+      "video-path": { x: 0, y: 38, width: 500 * (16 / 9), height: 500 }
     }
   })
 }
@@ -58073,16 +57850,16 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$67c23d', $67c23d);
+            api.createRecord('$3c827f', $3c827f);
           } else {
-            api.reload('$67c23d', $67c23d);
+            api.reload('$3c827f', $3c827f);
           }
         }
 
         
       }
     })();
-},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","../views/RaceViewComponent.vue":"views/RaceViewComponent.vue","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"sd_2/main.ts":[function(require,module,exports) {
+},{"vue-property-decorator":"../../../node_modules/vue-property-decorator/lib/vue-property-decorator.js","../views/SingleCoopViewComponent.vue":"views/SingleCoopViewComponent.vue","vue-hot-reload-api":"../../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../../node_modules/vue/dist/vue.runtime.esm.js"}],"hd_coop/main.ts":[function(require,module,exports) {
 "use strict";
 /* eslint no-new: off, @typescript-eslint/explicit-function-return-type: off */
 
@@ -58112,7 +57889,7 @@ new vue_1.default({
     return h(main_vue_1.default);
   }
 });
-},{"vue":"../../../node_modules/vue/dist/vue.runtime.esm.js","../../plugin/store":"../plugin/store.ts","../../plugin/vuetify":"../plugin/vuetify.ts","./main.vue":"sd_2/main.vue"}],"../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"../../../node_modules/vue/dist/vue.runtime.esm.js","../../plugin/store":"../plugin/store.ts","../../plugin/vuetify":"../plugin/vuetify.ts","./main.vue":"hd_coop/main.vue"}],"../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -58316,5 +58093,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","sd_2/main.ts"], null)
-//# sourceMappingURL=main.038e9a7e.js.map
+},{}]},{},["../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","hd_coop/main.ts"], null)
+//# sourceMappingURL=main.4358b1ea.js.map

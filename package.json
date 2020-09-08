@@ -74,6 +74,11 @@
         "file": "hd_2/index.html",
         "width": 1280,
         "height": 720
+      },
+      {
+        "file": "hd_coop/index.html",
+        "width": 1280,
+        "height": 720
       }
     ],
     "assetCategories": [
